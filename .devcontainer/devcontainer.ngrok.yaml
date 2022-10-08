@@ -1,0 +1,9 @@
+version: 2
+
+tunnels:
+  default:
+    proto: http
+    addr: http://localhost:5000
+
+console_ui: false
+web_addr: 0.0.0.0:5480

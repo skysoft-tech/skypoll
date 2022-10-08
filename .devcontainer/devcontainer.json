@@ -1,0 +1,29 @@
+// For format details, see https://aka.ms/devcontainer.json
+{
+	"name": "Ubuntu",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { "VARIANT": "ubuntu-20.04" }
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is successfully started
+	"postStartCommand": "nohup bash -c 'ngrok start --all --config ${containerWorkspaceFolder}/.devcontainer/devcontainer.ngrok.yaml &' > /var/log/nohup.log",
+
+    "forwardPorts": [ 5000, 5480 ],
+
+	// Comment out to connect as root instead
+	"remoteUser": "vscode",
+
+	"features": {
+		"docker-in-docker": "latest",
+		"dotnet": "6.0"
+	},
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"EditorConfig.EditorConfig"
+			]
+		}
+	}
+}
